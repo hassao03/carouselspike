@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">carouselspike</string>
+    <string name="app_name">Sport</string>
+
+    <string-array name="text_items">
+        <item>Arsenal</item>
+        <item>Leeds</item>
+        <item>Manchester</item>
+    </string-array>
 </resources>
