@@ -16,7 +16,10 @@ class MainActivity : AppCompatActivity() {
     private fun addItems(): List<Adapter.Rows>{
         val rows = mutableListOf<Adapter.Rows>()
         val items = DataSource(this).getItems()
+        val webUrl = DataSource(this).getWebUrl()
         rows.add(Adapter.TextRow(items))
+        rows.add(Adapter.WebViewRow(webUrl))
         return rows
     }
+
 }
