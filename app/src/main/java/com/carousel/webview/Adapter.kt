@@ -1,24 +1,27 @@
 package com.carousel.webview
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import kotlin.collections.ArrayList
 
 class Adapter(val context: Context, val rowItems: List<Rows>): RecyclerView.Adapter<RecyclerView.ViewHolder> (){
 
     interface Rows
-    class TextRow(val text: MutableList<String>, val image: TypedArray): Rows
+    class TextRow(val text: MutableList<String>, val image: ArrayList<Int>): Rows
     class WebViewRow(val url: String): Rows
 
     class TextViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val textView: TextView = itemView.findViewById(R.id.text_view)
         val imageView: ImageView = itemView.findViewById(R.id.image_view)
+        val imageView2: ImageView = itemView.findViewById(R.id.image_view2)
+        val imageView3: ImageView = itemView.findViewById(R.id.image_view3)
     }
 
     class WebViewViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -52,9 +55,9 @@ class Adapter(val context: Context, val rowItems: List<Rows>): RecyclerView.Adap
     private fun onBindTextHolder(holder: RecyclerView.ViewHolder, row: TextRow){
         val textHolder = holder as TextViewHolder
         textHolder.textView.text = row.text.toString()
-        val rowImage = row.image
-        textHolder.imageView.setImageResource(rowImage.getResourceId(rowImage.getIndex(0),-1))
-        rowImage.recycle()
+        textHolder.imageView.setImageDrawable(ContextCompat.getDrawable(context, row.image[0]))
+        textHolder.imageView2.setImageDrawable(ContextCompat.getDrawable(context, row.image[1]))
+        textHolder.imageView3.setImageDrawable(ContextCompat.getDrawable(context, row.image[2]))
     }
 
     private fun onBindWebViewHolder(holder: RecyclerView.ViewHolder, row: WebViewRow){
