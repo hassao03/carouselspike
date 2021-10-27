@@ -4,6 +4,11 @@
     <string-array name="text_items">
         <item>Arsenal</item>
         <item>Leeds</item>
-        <item>Manchester</item>
+        <item>Liverpool</item>
+        <item>Everton</item>
+        <item>Aston Villa</item>
+        <item>Westham</item>
+        <item>Chelsea</item>
+        <item>West brom</item>
     </string-array>
 </resources>
