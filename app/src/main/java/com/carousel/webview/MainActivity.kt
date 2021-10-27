@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         val rows = mutableListOf<Adapter.Rows>()
         val items = DataSource(this).getItems()
         val webUrl = DataSource(this).getWebUrl()
-        rows.add(Adapter.TextRow(items))
+        val imageArray = resources.obtainTypedArray(R.array.icons)
+        rows.add(Adapter.TextRow(items, imageArray))
         rows.add(Adapter.WebViewRow(webUrl))
         return rows
     }

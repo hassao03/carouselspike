@@ -1,6 +1,7 @@
 package com.carousel.webview
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 class Adapter(val context: Context, val rowItems: List<Rows>): RecyclerView.Adapter<RecyclerView.ViewHolder> (){
 
     interface Rows
-    class TextRow(val text: MutableList<String>): Rows
+    class TextRow(val text: MutableList<String>, val image: TypedArray): Rows
     class WebViewRow(val url: String): Rows
 
     class TextViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -35,7 +36,7 @@ class Adapter(val context: Context, val rowItems: List<Rows>): RecyclerView.Adap
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         when(viewType){
             TYPE_TEXT -> TextViewHolder(LayoutInflater.from(parent.context)
-                .inflate(R.layout.carousel_item, parent, false))
+                .inflate(R.layout.carousel, parent, false))
             TYPE_WEBVIEW -> WebViewViewHolder(LayoutInflater.from(parent.context)
                 .inflate(R.layout.webview_item, parent, false))
             else -> throw IllegalArgumentException()
@@ -51,6 +52,9 @@ class Adapter(val context: Context, val rowItems: List<Rows>): RecyclerView.Adap
     private fun onBindTextHolder(holder: RecyclerView.ViewHolder, row: TextRow){
         val textHolder = holder as TextViewHolder
         textHolder.textView.text = row.text.toString()
+        val rowImage = row.image
+        textHolder.imageView.setImageResource(rowImage.getResourceId(rowImage.getIndex(0),-1))
+        rowImage.recycle()
     }
 
     private fun onBindWebViewHolder(holder: RecyclerView.ViewHolder, row: WebViewRow){

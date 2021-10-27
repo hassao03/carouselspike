@@ -11,4 +11,10 @@
         <item>Chelsea</item>
         <item>West brom</item>
     </string-array>
+
+    <array name="icons">
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_foreground</item>
+        <item>@drawable/add_follow</item>
+    </array>
 </resources>

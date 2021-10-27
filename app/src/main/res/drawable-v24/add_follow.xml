@@ -1,0 +1,24 @@
+<vector android:height="32dp" android:viewportHeight="32.0"
+    android:viewportWidth="32.0" android:width="32dp" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <path
+        android:name="add_background"
+        android:pathData="M0,0L32,0L32,32L0,32Z"
+        android:fillColor="#767676" />
+
+    <path
+        android:name="remove_background"
+        android:pathData="M0,0L32,0L32,32L0,32Z"
+        android:fillColor="#006def"
+        android:fillAlpha="0" />
+
+    <path
+        android:name="vertical_stroke"
+        android:pathData="M16,8L16,24"
+        android:strokeColor="#FFFFFF" android:strokeWidth="4"/>
+    <path
+        android:name="horizontal_stroke"
+        android:pathData="M8,16L24,16"
+        android:strokeColor="#FFFFFF" android:strokeWidth="4"/>
+
+</vector>

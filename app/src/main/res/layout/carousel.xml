@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linear_layout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -13,7 +14,8 @@
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:padding="32dp"/>
 
         <TextView
             android:id="@+id/text_view"
@@ -21,7 +23,7 @@
             android:layout_height="80dp"
             android:scrollbars="horizontal"
             android:textSize="16sp"
-            android:drawableLeft="@drawable/ic_launcher_background"/>
+            android:text="text"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
