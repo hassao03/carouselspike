@@ -24,7 +24,7 @@ class Adapter (val rowItems: List<Rows>): RecyclerView.Adapter<RecyclerView.View
     override fun getItemViewType(position: Int): Int {
         return when (rowItems[position]) {
             is TextRow -> TYPE_TEXT
-            is WebView -> TYPE_WEBVIEW
+            is WebViewRow -> TYPE_WEBVIEW
             else -> throw IllegalArgumentException()
         }
     }
