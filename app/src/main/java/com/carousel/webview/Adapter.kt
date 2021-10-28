@@ -9,6 +9,7 @@ import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
@@ -21,9 +22,9 @@ class Adapter(val rowItems: List<Rows>): RecyclerView.Adapter<RecyclerView.ViewH
     class WebViewRow(val url: String): Rows
 
     class CarouselViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        //val textView: TextView = itemView.findViewById(R.id.text_view)
        // val imageView: ImageView = itemView.findViewById(R.id.image_view)
         val linearLayout: LinearLayout = itemView.findViewById(R.id.carousel_linear_layout)
+
     }
 
     class WebViewViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -66,6 +67,10 @@ class Adapter(val rowItems: List<Rows>): RecyclerView.Adapter<RecyclerView.ViewH
         for((i,team) in row.text.withIndex()){
             val carouselItem = layoutInflater.inflate(R.layout.carousel_item, carouselHolder.linearLayout, false)
 
+            carouselItem.setOnClickListener {
+                Toast.makeText(carouselHolder.linearLayout.context, team, Toast.LENGTH_SHORT).show()
+
+            }
             carouselItem.findViewById<TextView>(R.id.topicTitle).text = team
             carouselItem.findViewById<ImageView>(R.id.topicImage).setImageResource(row.image[i])
 
