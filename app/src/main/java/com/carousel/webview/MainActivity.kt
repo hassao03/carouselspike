@@ -38,7 +38,8 @@ class MainActivity : AppCompatActivity() {
             R.drawable.astonvilla_logo,
             R.drawable.westham_logo,
             R.drawable.chelsea_logo,
-            R.drawable.west_brom_logo);
+            R.drawable.west_brom_logo,
+        );
 
         val webUrl = DataSource(this).getWebUrl()
 
